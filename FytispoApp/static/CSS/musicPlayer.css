@@ -1,0 +1,139 @@
+/* General Layout */
+html, body {
+    background-color: #caa8f5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling on the entire page */
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Main Content (Scrollable) */
+.main-content {
+    margin-left: 120px; /* Match sidebar width */
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: calc(100vh - 60px); /* Full viewport height minus padding */
+}
+
+/* Header Title */
+.header-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Music Card */
+.music-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Song List */
+.music-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.music-content ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.music-content ul li:last-child {
+    border-bottom: none;
+}
+
+.music-content ul li strong {
+    font-size: 18px;
+    color: black;
+}
+
+.music-content ul li em {
+    font-size: 16px;
+    color: #666; /* Gray color for the artist's name */
+    margin-left: 5px; /* Space between the song title and artist */
+}
+
+/* Play Button */
+/* Buttons */
+.music-content ul li button {
+    background-color: #1DB954; /* Spotify Green */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    margin-left: 10px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: #17a44a; /* Darker green */
+    transform: scale(1.05);
+}
+
+/* Music Player Footer */
+.musicPlayerFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the audio player */
+.musicPlayerFooter audio {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 10px;
+}
+
+/* Back to Dashboard Button */
+.back-to-dashboard {
+    position: absolute; /* Position the button absolutely */
+    top: 70px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 1000; /* Ensure the button is above other content */
+}
+
+.back-button {
+    background-color: #1DB954; /* Spotify Green */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: #17a44a; /* Darker green */
+    transform: scale(1.05);
+}

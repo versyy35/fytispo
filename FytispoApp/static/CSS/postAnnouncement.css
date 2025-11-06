@@ -1,0 +1,65 @@
+/* General Layout */
+body, html {
+    background-color: #caa8f5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-y: hidden; /* Prevents horizontal scroll */
+    overflow-x: hidden;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    padding: 20px;
+    width: 100%; /* Ensure main content takes full width */
+}
+
+/* postAnnouncement.css */
+.announcement-form {
+    max-width: 800px; /* Increased width */
+    width: 100%; /* Ensure form takes full width */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-button {
+    background-color: #7a90e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #5a70c8;
+}

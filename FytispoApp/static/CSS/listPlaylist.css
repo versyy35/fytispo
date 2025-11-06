@@ -1,0 +1,221 @@
+/* General Layout */
+body, html {
+    background-color: #caa8f5;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+
+/* Sidebar (Fixed in Place) */
+.sidebar {
+    width: 200px;
+    background-color: #950be5; /* Dark Purple */
+    position: fixed;
+    top: 56px; /* Below navbar */
+    left: 0;
+    height: calc(100vh - 56px); /* Ensures full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    z-index: 1000; /* Ensures it's above content */
+}
+
+/* Sidebar Buttons */
+.sidebar-btn {
+    background: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px; /* Smaller icons */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+body, html {
+    overflow: hidden; /* Disables both vertical and horizontal scrolling */
+}
+
+/* Create Playlist Form */
+.create-playlist {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 35%;
+    height: 110px;
+}
+
+.create-playlist h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+.create-playlist input[type="text"] {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.create-playlist button {
+    background-color: #950be5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.create-playlist button:hover {
+    background-color: #7a0bc2;
+}
+
+/* Share Playlist Form */
+.share-playlist-form {
+    margin-top: 10px;
+}
+
+.share-playlist-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.share-playlist-form button {
+    background-color: #950be5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.share-playlist-form button:hover {
+    background-color:#7a0bc2;
+}
+
+
+/* Hover Effect */
+.sidebar-btn:hover {
+    background-color: #6696ff;
+    transform: scale(1.1);
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    width: 100vw; /* Full width */
+    height: 100vh;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    margin-left: 200px; /* Leaves space for sidebar */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Playlist Container */
+.playlist-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Playlist Card */
+.playlist-card {
+    position: relative;
+    background-color: white;
+    width: 200px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.playlist-card:hover {
+    transform: scale(1.05);
+}
+
+/* Playlist Cover */
+.playlist-cover {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Playlist Title */
+.playlist-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+/* Playlist Artist */
+.playlist-artist {
+    font-size: 14px;
+    color: gray;
+}
+
+/* 3-Dot Menu */
+.menu-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Menu Options (Hidden by Default) */
+.menu-options {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 30px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Menu Button */
+.menu-options button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Menu Hover */
+.menu-options button:hover {
+    background: #e0e0e0;
+}

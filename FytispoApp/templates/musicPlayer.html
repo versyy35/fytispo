@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Music Player{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'CSS/musicPlayer.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Back to Dashboard Button -->
+    <div class="back-to-dashboard">
+        <a href="{% url 'userDashboard' %}" class="back-button">
+            <i class='bx bx-arrow-back'></i> Back to Dashboard
+        </a>
+    </div>
+
+    <!-- Main Content (Scrollable) -->
+    <div class="main-content">
+        <h1 class="header-title">🎵 List of Songs</h1>
+
+        <div class="music-card">
+            <div class="music-content">
+                <ul>
+                    {% for song in songs %}
+                        <li>
+                            <button onclick="playSong('{{ song.audio_file.url }}', '{{ song.title }}', '{{ song.user.username }}')">Play</button>
+                            <strong>{{ song.title }} <em>by {{ song.user.username }}</em></strong>
+                            <!-- Add to Playlist Form -->
+                            <form method="post" action="{% url 'add_to_playlist' song.song_id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <select name="playlist_id" required>
+                                    <option value="" disabled selected>Select a playlist</option>
+                                    {% for playlist in playlists %}
+                                        <option value="{{ playlist.playlist_id }}">{{ playlist.title }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit">Add to Playlist</button>
+                            </form>
+                
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Player Footer -->
+    <div class="musicPlayerFooter">
+        <div id="nowPlaying">
+            <span id="songTitle">No song playing</span> - <span id="songArtist"></span>
+        </div>
+        <audio id="audioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</div>
+
+{% block extra_js %}
+  <script src="{% static 'JS/musicPlayer.js' %}"></script>
+{% endblock %}
+{% endblock %}

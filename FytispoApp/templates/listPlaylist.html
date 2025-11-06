@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Your Playlists{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/listPlaylist.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Sidebar (Fixed on the Left) -->
+    <div class="sidebar">
+
+        <!-- Play Music Button -->
+        <a href="{% url 'musicPlayer' %}" class="sidebar-btn">
+            <i class='bx bxs-music'></i>
+        </a>
+
+        <a href="{% url 'listPlaylist' %}" class="sidebar-btn">
+            <i class='bx bxs-playlist'></i>
+        </a>
+        <a href="{% url 'listArtist' %}" class="sidebar-btn">
+            <i class='bx bxs-user'></i>
+        </a>
+        <a href="{% url 'readAnnouncement' %}" class="sidebar-btn">
+            <i class='bx bxs-megaphone'></i>
+        </a>
+        <a href="{% url 'home' %}" class="sidebar-btn">
+            <i class='bx bxs-log-out-circle'></i>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>📂 Your Playlists</h2>
+        <p>Here are your saved playlists.</p>
+
+        <!-- Create Playlist Form -->
+        <div class="create-playlist">
+            <h4>Create a New Playlist</h4>
+            <form method="post" action="{% url 'create_playlist' %}">
+                {% csrf_token %}
+                <input type="text" name="title" placeholder="Title" required>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+
+        <!-- Playlist Container -->
+        <div class="playlist-container">
+            {% for playlist in playlists %}
+                <div class="playlist-card">
+                    <img src="{% static 'images/eve-Smile-album.jpg' %}" alt="Eve's Smile Album" class="playlist-cover">
+                    <div class="playlist-info">
+                        <a href="{% url 'viewPlaylist' playlist.playlist_id %}" class="playlist-title">{{ playlist.title }}</a>
+                        <p class="playlist-artist">{{ playlist.user.username }}</p>
+                    </div>
+
+                <!-- 3-dot menu -->
+                <div class="playlist-menu">
+                    <i class='bx bx-dots-vertical-rounded menu-icon'></i>
+                    <div class="menu-options">
+                        <button onclick="deletePlaylist('{{ playlist.playlist_id }}')">Delete</button>
+                        <button onclick="renamePlaylist('{{ playlist.playlist_id }}')">Rename</button>
+                    </div>
+                </div>
+
+                <!-- Share Playlist Form -->
+                <form method="post" action="{% url 'share_playlist' playlist.playlist_id %}" class="share-playlist-form">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Enter username" required>
+                    <button type="submit">Share</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'JS/listPlaylist.js' %}"></script>
+<script src="{% static 'JS/deletePlaylist.js' %}"></script>
+<script src="{% static 'JS/renamePlaylist.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/artist_songs.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Back to Dashboard Button -->
+    <div class="back-to-dashboard">
+        <a href="{% url 'listArtist' %}" class="back-button">
+            <i class='bx bx-arrow-back'></i> Back to Artists
+        </a>
+    </div>
+
+    <div class="main-content">
+        <h2>Songs by {{ artist.username }}</h2>
+
+        <!-- Song List -->
+        <ul class="song-list">
+            {% for song in songs %}
+                <li class="song-item">
+                    <span><strong>{{ song.title }}</strong> - {{ song.genre }}</span>
+                    <button class="play-btn" onclick="playSong('{{ song.audio_file.url }}', '{{ song.title }}', '{{ artist.username }}')">
+                        <i class='bx bx-play'></i>
+                    </button>
+                </li>
+            {% empty %}
+                <li>No songs uploaded yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="music-player">
+        <div id="nowPlaying">
+            <span id="songTitle">No song playing</span> - <span id="songArtist"></span>
+        </div>
+        <audio id="audioPlayer" controls>Your browser does not support the audio element.</audio>
+    </div>
+</div>
+
+{% block extra_js %}
+<script src="{% static 'JS/musicPlayer.js' %}"></script>
+{% endblock %}
+{% endblock %}

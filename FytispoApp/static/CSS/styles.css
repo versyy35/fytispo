@@ -1,0 +1,25 @@
+/* Ensure the navbar is fully black */
+.navbar {
+    background-color: black !important;
+}
+
+/* Ensure navbar links are white */
+.navbar a {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Change link color on hover */
+.navbar a:hover {
+    color: #caa8f5 !important; /* Matches your theme */
+}
+
+/* Fix the navbar-toggler icon for mobile */
+.navbar-toggler {
+    border-color: white !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1); /* Makes the icon white */
+}
+

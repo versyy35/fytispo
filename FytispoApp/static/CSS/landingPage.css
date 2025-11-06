@@ -1,0 +1,132 @@
+/* General Layout */
+body, html {
+    background-color: #caa8f5;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  /* Keep this */
+    overflow-y: hidden; /* Allow scrolling to prevent layout shifts */
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    position: fixed;  /* Keep navbar fixed at the top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's above everything */
+}
+
+
+/* Homepage Layout */
+.homepage-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    margin-top: 80px;  /* Push content below navbar */
+}
+
+
+/* Image Container */
+/* Ensure Image Resizes Properly */
+.image-container {
+    position: relative; /* This makes the image move relative to this container */
+    width: 50vw; /* Adjust width */
+    height: auto;
+    z-index: 5; /* Ensure it's under the navbar */
+}
+   
+/* Ensure Image Resizes Properly */
+.homepage-image {
+    position: absolute;
+    top: -130px; /* Move it higher */
+    left: -180px; /* Move it more to the left */
+    width: 120%; /* Keep it in proportion */
+    height: auto;
+    transform: rotate(90deg);
+}
+
+/* Right Side Content */
+.content-container {
+    position: relative;
+    text-align: center;
+    width: 350px;
+    max-width: 100%;
+    padding: 20px;
+}
+
+/* Move the heading */
+.content-container h2 {
+    position: relative; 
+    top: 10px; /* Moves it up */
+    left: -50px; /* Moves it left */
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+/* Card Design */
+.card {
+    position: relative;
+    width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    background: #4d27ca;
+    box-shadow: 0 10px 40px rgb(0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: white; /* Text in card colour  */
+    text-align: center;
+    top: 30px;
+    left : -80px
+}
+
+/* Button Styling */
+.card-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: #212121;
+    background: #e8e8e8;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 70px;
+}
+
+/* Hover Effect */
+.card-button:hover {
+    background: #caa8f5;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .homepage-container {
+        flex-direction: column;
+    }
+
+    .image-container {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: rotate(0);
+        width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

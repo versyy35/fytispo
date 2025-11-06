@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Playlist{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/viewPlaylist.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Back to Dashboard Button -->
+    <div class="back-to-dashboard">
+        <a href="{% url 'listPlaylist' %}" class="back-button">
+            <i class='bx bx-arrow-back'></i> Back to Playlists
+        </a>
+    </div>
+
+    <div class="main-content">
+        <h2>Playlist: {{ playlist.title }}</h2>
+        <p>Created by {{ playlist.user.username }}</p>
+
+        <div class="song-list">
+            {% for playlist_song in playlist.playlist_songs.all %}
+                <div class="song-item">
+                    <div class="song-info">
+                        <p class="song-title">{{ playlist_song.song.title }}</p>
+                        <p class="song-artist">{{ playlist_song.song.user.username }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

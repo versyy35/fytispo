@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Artists{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/listPlaylist.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Sidebar (Fixed on the Left) -->
+    <div class="sidebar">
+        <a href="{% url 'musicPlayer' %}" class="sidebar-btn">
+            <i class='bx bxs-music'></i>
+        </a>
+        <a href="{% url 'listPlaylist' %}" class="sidebar-btn">
+            <i class='bx bxs-playlist'></i>
+        </a>
+        <a href="{% url 'listArtist' %}" class="sidebar-btn">
+            <i class='bx bxs-user'></i>
+        </a>
+        <a href="{% url 'readAnnouncement' %}" class="sidebar-btn">
+            <i class='bx bxs-megaphone'></i>
+        </a>
+        <a href="{% url 'home' %}" class="sidebar-btn">
+            <i class='bx bxs-log-out-circle'></i>
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Artists</h2>
+        <p>All music geniuses!</p>
+
+        <!-- Artist Grid (Dynamic) -->
+        <div class="artist-grid">
+            {% for artist in artists %}
+            <div class="artist-card">
+                <a href="{% url 'artist_songs' artist_username=artist.username %}" class="artist-name">
+                    {{ artist.username }}
+                </a>
+                <p class="artist-genre">
+                    {% with artist_songs=artist.songs.all %}
+                        {% if artist_songs %}
+                            {{ artist_songs.first.genre }}
+                        {% else %}
+                            No songs yet
+                        {% endif %}
+                    {% endwith %}
+                </p>
+            </div>
+            {% empty %}
+            <p>No artists found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

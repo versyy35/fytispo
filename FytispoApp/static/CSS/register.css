@@ -1,0 +1,164 @@
+/* Background color */
+body, html {
+    background-color: #caa8f5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Register Container - Centers Form */
+.register-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Register Form */
+.register-form {
+    width: 400px;
+    min-height: 550px;
+    background-image: linear-gradient(to bottom, #424242, #212121);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.title {
+    color: #ffffff;
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+/* Input Fields */
+.input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    width: 80%;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #caa8f5;
+    transition: all 400ms;
+    font-size: 16px;
+}
+
+.input:hover, .input:focus {
+    background-color: #424242;
+    border-radius: 0.5rem;
+}
+
+/* Register Button */
+.btn {
+    height: 3rem;
+    width: 80%;
+    margin-top: 2rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 400ms;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add this */
+    font-weight: bold;
+    text-align: center; /* Ensure center alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: #caa8f5;
+    box-shadow: none;
+}
+
+/* Checkbox Group - Centers and Aligns Checkboxes */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+/* Checkbox Styling (Now a Radio Button) */
+.checkbox-wrapper {
+    --checkbox-size: 25px;
+    --checkbox-color: #caa8f5;
+    --checkbox-shadow: rgba(145, 23, 216, 0.3);
+    --checkbox-border: rgba(115, 30, 194, 0.7);
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Hide Default Radio */
+.checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Checkbox Design */
+.checkbox-wrapper .checkmark {
+    position: relative;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    border: 2px solid var(--checkbox-border);
+    border-radius: 50%; /* Ensures it looks like a radio button */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px var(--checkbox-shadow);
+    overflow: hidden;
+}
+
+/* Inner Circle when Selected */
+.checkbox-wrapper .checkmark::before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: var(--checkbox-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Checked State */
+.checkbox-wrapper input:checked ~ .checkmark::before {
+    opacity: 1;
+}
+
+/* Checkbox Label */
+.checkbox-wrapper .label {
+    margin-left: 15px;
+    font-family: "Segoe UI", sans-serif;
+    color: var(--checkbox-color);
+    font-size: 18px;
+    text-shadow: 0 0 10px var(--checkbox-shadow);
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+/* Hover Effect */
+.checkbox-wrapper:hover .label {
+    opacity: 1;
+    transform: translateX(5px);
+}

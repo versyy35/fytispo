@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <form class="login-form" method="post">
+        {% csrf_token %}
+        <p class="title">Welcome Back!</p>
+
+        <!-- Display error message if it exists -->
+        {% if error_message %}
+        <div class="error-message" style="color: #ff3333;">
+            {{ error_message }}
+        </div>
+        {% endif %}
+        
+        <input placeholder="Username" class="username input" type="text" name="username" required />
+        <input placeholder="Password" class="password input" type="password" name="password" required />
+        
+        <!-- Submit Button -->
+        <button class="btn" type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}

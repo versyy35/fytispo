@@ -1,0 +1,108 @@
+/* General Layout */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh; /* Ensures full-page coverage */
+    width: 200vw;
+    background-color: #caa8f5;
+}
+
+body, html {
+    overflow: hidden; /* Disables both vertical and horizontal scrolling */
+}
+
+
+/* Sidebar (Fixed in Place) */
+.sidebar {
+    width: 200px;
+    background-color: #950be5; /* Dark Purple */
+    position: fixed;
+    top: 56px; /* Adjusted to start below navbar */
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+/* Sidebar Buttons */
+.sidebar-btn {
+    background: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.sidebar-btn:hover {
+    background-color: #6696ff;
+    transform: scale(1.1);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1; /* Allows content to expand fully */
+    margin-left: 220px; /* Leaves space for sidebar */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure content area fills screen */
+    overflow-y: auto; /* Allows scrolling */
+}
+
+/* Profile Section */
+.profile-container {
+    position: absolute;
+    top: 120px;
+    left: 260px;
+    display: flex;
+    align-items: center;
+    gap: 400px;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid black;
+}
+
+/* Username */
+.username {
+    position: absolute;
+    top: 55px;
+    left: 320px;
+    font-size: 80px;
+    font-weight: bold;
+    color: black;
+}
+
+.username {
+    display: block !important;
+    color: black !important;
+}
+
+.dateJoined {
+    position: absolute;
+    top: 253px;
+    left: 342px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    white-space: nowrap;
+}
+
+
+
+
+

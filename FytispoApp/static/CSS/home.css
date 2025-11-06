@@ -1,0 +1,149 @@
+/* General Layout */
+body, html {
+    background-color: #caa8f5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-y: hidden; /* Prevents horizontal scroll */
+    overflow-x: hidden;
+}
+
+/* Homepage Layout */
+.homepage-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 5vw;
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    width: 50vw; /* Adjust width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Styling */
+.homepage-image {
+    position: absolute;
+    top: -220px;
+    right: 100px;
+    width: 170%;
+    height: auto;
+    object-fit: cover;
+    transform: rotate(90deg);
+}
+
+/* View Playlists Button */
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+}
+
+/* Welcome Message */
+.welcome-message {
+    position: absolute;
+    top: 180px;  /* Adjust as needed */
+    left: 480px; /* Same as button to align */
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* View Playlists Button */
+.view-playlists-btn {
+    display: flex;
+    position: absolute;
+    top: 350px;
+    left: 550px;
+    gap: 8px;
+    background: #4B0082;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* View Albums Button*/
+.view-album-btn {  
+    display: flex;
+    position: absolute;
+    top: 420px;  
+    left: 550px;
+    gap: 8px;
+    background: #4B0082;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* View Artists Button*/
+.view-artist-btn {  
+    display: flex;
+    position: absolute;
+    top: 495px;  
+    left: 550px;
+    gap: 8px;
+    background: #4B0082;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* View Annoncements Button*/
+.view-announcement-btn {  
+    display: flex;
+    position: absolute;
+    top: 565px; 
+    left: 550px;
+    gap: 8px;
+    background: #4B0082;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Icons */
+.view-playlists-btn i,
+.view-album-btn i,
+.view-artist-btn i,
+.view-anouncement-btn i {
+    font-size: 24px;
+}
+
+/* Hover Effect */
+.view-playlists-btn:hover,
+.view-album-btn:hover,
+.view-artist-btn:hover,
+.view-announcement-btn:hover {
+    background: #6A0DAD;
+    transform: scale(1.1);
+}

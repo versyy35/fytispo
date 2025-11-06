@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Fytispo{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'CSS/styles.css' %}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- ✅ Navbar (Only One) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <a class="navbar-brand" href="">Fytispo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="
+                        {% if user.role.role_name == 'Listener' %}
+                            {% url 'userDashboard' %}
+                        {% elif user.role.role_name == 'Music Artist' %}
+                            {% url 'artistDashboard' %}
+                        {% elif user.role.role_name == 'Moderator' %}
+                            {% url 'modDashboard' %}
+                        {% else %}
+                            {% url 'home' %} 
+                        {% endif %}
+                    ">Profile</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'imfeelinglucky' %}">Notes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ✅ Main Content -->
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Bootstrap and Custom JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

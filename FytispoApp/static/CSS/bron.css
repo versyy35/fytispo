@@ -1,0 +1,20 @@
+/* Image Container */
+.image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300vw; /* Adjusts width relative to viewport */
+    max-width: 800px; /* Prevents it from getting too large */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image Styling */
+.homepage-image {
+    width: 300%; /* Fills the container */
+    height: auto;
+    object-fit: contain;
+    transform: rotate(90deg);
+}

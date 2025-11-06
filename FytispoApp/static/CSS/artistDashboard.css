@@ -1,0 +1,134 @@
+/* General Layout */
+body, html {
+    background-color: #caa8f5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    overflow-y: hidden; /* Prevents horizontal scroll */
+    overflow-x: hidden;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1; /* Allows content to expand fully */
+    margin-left: 220px; /* Leaves space for sidebar */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure content area fills screen */
+    overflow-y: auto; /* Allows scrolling */
+}
+
+/* Profile Section */
+.profile-container {
+    position: absolute;
+    top: 120px;
+    left: 260px;
+    display: flex;
+    align-items: center;
+    gap: 400px;
+    margin-bottom: 40px; /* Space between profile and buttons */
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid black;
+}
+
+/* Username */
+.username {
+    position: absolute;
+    top: 95px;
+    left: 320px;
+    font-size: 80px;
+    font-weight: bold;
+    color: black;
+}
+
+.role {
+    position: absolute;
+    top: 200px;
+    left: 342px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Button Styling */
+.flag-card-button {
+    width: 60%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: #212121;
+    background: #e8e8e8;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 550px; /* Adjust this value */
+    left: 250px; /* Adjust this value */
+}
+
+.viewAnnouncement-card-button {
+    width: 60%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: #212121;
+    background: #e8e8e8;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 450px; /* Adjust this value */
+    left: 250px; /* Adjust this value */
+}
+
+.postAnnouncement-card-button {
+    width: 60%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: #212121;
+    background: #e8e8e8;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 500px; /* Adjust this value */
+    left: 250px; /* Adjust this value */
+}
+
+.logOut-card-button {
+    width: 60%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: #212121;
+    background: #e8e8e8;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 600px; /* Adjust this value */
+    left: 250px; /* Adjust this value */
+}
+/* Hover Effect */
+.flag-card-button:hover,
+.postAnnouncement-card-button:hover,
+.viewAnnouncement-card-button:hover,
+.logOut-card-button:hover {
+    background: #7a90e8;
+    transform: scale(1.05);
+}

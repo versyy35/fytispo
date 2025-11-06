@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Register{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="register-container">
+    <form class="register-form" method="post">
+        {% csrf_token %}
+        <p class="title">Create Your Account</p>
+
+        {% if form.errors %}
+            <div style="color: #ff3333; margin-bottom: 10px; text-align: center;">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        {{ error }}<br>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Email field -->
+        <input type="email" name="{{ form.email.name }}" placeholder="Email" class="input" required>
+
+        <!-- Username field -->
+        <input type="text" name="{{ form.username.name }}" placeholder="Username" class="input" required>
+
+        <!-- Password fields -->
+        <input type="password" name="{{ form.password1.name }}" placeholder="Password" class="input" required>
+        <input type="password" name="{{ form.password2.name }}" placeholder="Confirm Password" class="input" required>
+
+        <!-- Account Type Radio Buttons -->
+        <div class="checkbox-group">
+            {% for radio in form.account_type %}
+            <label class="checkbox-wrapper">
+                {{ radio.tag }}
+                <div class="checkmark"></div>
+                <span class="label">{{ radio.choice_label }}</span>
+            </label>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+{% endblock %}

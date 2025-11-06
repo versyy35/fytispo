@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Upload Song - Fytispo{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'CSS/upload_song.css' %}">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="upload-container">
+    <!-- Upload Form -->
+    <div class="upload-form">
+        <h2>Upload Song</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Song Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter song title" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" placeholder="Enter genre" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (seconds)</label>
+                <input type="number" id="duration" name="duration" placeholder="Enter duration" required>
+            </div>
+            <div class="form-group">
+                <label for="audio_file">Audio File</label>
+                <input type="file" id="audio_file" name="audio_file" accept="audio/*" required>
+            </div>
+            <button type="submit" class="upload-button">Upload Song</button>
+        </form>
+
+        <!-- Messages -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

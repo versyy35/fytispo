@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Artist Dashboard - Fytispo{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'CSS/artistDashboard.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<!-- Add artist-specific content here -->
+
+<div class="dashboard-container">
+    <!-- Main Profile Section -->
+    <div class="main-content">
+        <div class="main-content">
+            <div class="profile-container">
+                <img src="{% static 'images/bigChungus.jpg' %}" alt="Profile Picture" class="profile-pic">
+                <h1 class="username">{{ user.username }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->  
+    <button class="flag-card-button" onclick="window.location.href='{% url 'upload_song' %}';">Upload Songs</button>
+    <button class="postAnnouncement-card-button" onclick="window.location.href='{% url 'postAnnouncement' %}';">Post Announcement</button>
+    <button class="viewAnnouncement-card-button" onclick="window.location.href='{% url 'readAnnouncement' %}';">View Announcement</button>
+    <button class="logOut-card-button" onclick="window.location.href='{% url 'logout' %}';">Log Out</button>
+
+</div>
+{% endblock %}

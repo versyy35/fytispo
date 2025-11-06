@@ -1,0 +1,95 @@
+/* Background color */
+body, html {
+    background-color: #caa8f5;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Login Container - Centers Form */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Login Form */
+.login-form {
+    width: 400px;
+    height: 400px;
+    background-image: linear-gradient(to bottom, #424242, #212121);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Title */
+.title {
+    color: #ffffff;
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+/* Input Fields */
+.input {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    width: 80%;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #caa8f5;
+    transition: all 400ms;
+    font-size: 16px;
+}
+
+.input:hover, .input:focus {
+    background-color: #424242;
+    border-radius: 0.5rem;
+}
+
+/* Login Button */
+.btn {
+    height: 3rem;
+    width: 80%;
+    margin-top: 2rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 400ms;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add this */
+    font-weight: bold;
+    text-align: center; /* Ensure center alignment */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: #caa8f5;
+    box-shadow: none;
+}
+
+/* Footer - Sticks to Bottom */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #212121;
+    color: white;
+    padding: 10px 0;
+}

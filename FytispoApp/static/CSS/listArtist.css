@@ -1,0 +1,152 @@
+/* General Layout */
+body, html {
+    background-color: #caa8f5;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Sidebar (Fixed in Place) */
+.sidebar {
+    width: 200px;
+    background-color: #950be5; /* Dark Purple */
+    position: fixed;
+    top: 56px; /* Below navbar */
+    left: 0;
+    height: calc(100vh - 56px); /* Ensures full height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    z-index: 1000; /* Ensures it's above content */
+}
+
+/* Sidebar Buttons */
+.sidebar-btn {
+    background: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px; /* Smaller icons */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+body, html {
+    overflow: hidden; /* Disables both vertical and horizontal scrolling */
+}
+
+.search-bar {
+    border: 2px solid transparent;
+    width: 15em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+  }
+  
+  .search-bar:hover,
+  .search-bar:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+  }
+  
+
+/* Hover Effect */
+.sidebar-btn:hover {
+    background-color: #6696ff;
+    transform: scale(1.1);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    margin-left: 200px;
+    padding: 40px;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Artist Grid - Making it more responsive */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Artist Card - More flexible sizing */
+.artist-card {
+    background: #f1e6d5;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width of grid cell */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-card:hover {
+    background-color: #86c0e7;
+    transform: scale(1.1);
+}
+
+/* Artist Image Container - Responsive sizing */
+.artist-image-container {
+    width: 100px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #4d27ca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artist-image {
+    width: 100%; /* Ensure the image takes up the full width of the container */
+    height: 100%; /* Ensure the image takes up the full height of the container */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .artist-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+    }
+    
+    .artist-image-container {
+        width: 80px;
+        height: 80px;
+    }
+}

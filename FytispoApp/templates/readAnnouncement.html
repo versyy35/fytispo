@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Fytispo - Announcements{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/readAnnouncement.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    {% if user.role.role_name == 'Listener' %}
+        <!-- Back to Dashboard Button -->
+        <div class="back-to-dashboard">
+            <a href="{% url 'userDashboard' %}" class="back-button">
+                <i class='bx bx-arrow-back'></i> Back to Dashboard
+            </a>
+        </div>
+        {% elif user.role.role_name == 'Moderator' %}
+        <!-- Moderator Sidebar -->
+        <!-- Back to Dashboard Button -->
+        <div class="back-to-dashboard">
+            <a href="{% url 'modDashboard' %}" class="back-button">
+                <i class='bx bx-arrow-back'></i> Back to Dashboard
+            </a>
+        </div>
+        {% elif user.role.role_name == 'Music Artist' %}
+        <!-- Artist Sidebar -->
+        <!-- Back to Dashboard Button -->
+        <div class="back-to-dashboard">
+            <a href="{% url 'artistDashboard' %}" class="back-button">
+                <i class='bx bx-arrow-back'></i> Back to Dashboard
+            </a>
+        </div>
+    {% endif %}
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2 class="header-title">📢 Announcements</h2>
+        <p class="header-message">Catch up on the latest news!</p>
+
+        {% if announcements %}
+            {% for announcement in announcements %}
+                <div class="announcement-box">
+                    <!-- Announcement Details -->
+                    <div class="poster-details">
+                        <p class="poster-name"><b>{{ announcement.user.username|default:"Unknown" }}</b></p>
+                        <p class="post-time">{{ announcement.posted_at|date:"F d, Y, h:i A" }}</p>
+                    </div>
+                    <h3 class="announcement-title">{{ announcement.title }}</h3>
+                    <p class="announcement-text">{{ announcement.content_text }}</p>
+                    
+                    <!-- Flag Form -->
+                    {% if user.role.role_name == 'Listener' %}
+                        <form method="post" action="{% url 'flag_announcement' announcement.announcement_id %}">
+                            {% csrf_token %}
+                            <textarea name="reason" placeholder="Reason for flagging..." required></textarea>
+                            <button type="submit" class="submit-flag">Flag Announcement</button>
+                        </form>
+                   {% endif %}
+
+                    <!-- Delete Button (Visible Only to Moderators) -->
+                    {% if user.role.role_name == 'Moderator' %}
+                        <form method="post" action="{% url 'delete_announcement' announcement.announcement_id %}" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No announcements available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+<script>
+    function toggleFlagForm(announcementId) {
+        var form = document.getElementById('flag-form-' + announcementId);
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>

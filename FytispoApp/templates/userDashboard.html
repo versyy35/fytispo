@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}User Dashboard - Fytispo{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'CSS/userDashboard.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Sidebar (Fixed on the Left) -->
+    <div class="sidebar">
+
+        <!-- Play Music Button -->
+        <a href="{% url 'musicPlayer' %}" class="sidebar-btn">
+            <i class='bx bxs-music'></i>
+        </a>
+
+        <!-- View Playlists -->
+        <a href="{% url 'listPlaylist' %}" class="sidebar-btn">
+            <i class='bx bxs-playlist'></i>
+        </a>
+    
+        <!-- View Artists -->
+        <a href="{% url 'listArtist' %}" class="sidebar-btn">
+            <i class='bx bxs-user'></i>
+        </a>
+    
+        <!-- View Announcements -->
+        <a href="{% url 'readAnnouncement' %}" class="sidebar-btn">
+            <i class='bx bxs-megaphone'></i>
+        </a>
+    
+        <!-- Log Out (Redirects to Landing Page) -->
+        <a href="{% url 'home' %}" class="sidebar-btn">
+            <i class='bx bxs-log-out-circle'></i>
+        </a>
+    </div>
+    
+    <!-- Main Profile Section -->
+    <div class="main-content">
+        <div class="main-content">
+            <div class="profile-container">
+                <img src="{% static 'images/bigChungus.jpg' %}" alt="Profile Picture" class="profile-pic">
+                <h2 class="username">{{ user.username }}</h2>
+                <p class="dateJoined">Joined {{ user.date_joined }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'JS/userDashboard.js' %}"></script>
+{% endblock %}
